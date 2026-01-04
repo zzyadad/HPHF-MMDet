@@ -9,7 +9,7 @@
 - 🚀 **SOTA Performance**:
     - **LLVIP**: 97.9% mAP50
     - **M3FD**: 89.8% mAP50
-    - **MFAD**: 77.8% mAP50
+    - **MFAD**: 80.8% mAP50
 
 ## 📅 代码发布计划
 
