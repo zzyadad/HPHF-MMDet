@@ -1,15 +1,6 @@
-# HPHF-Det: Heterogeneous Perception and Hyperspherical Fusion for Multimodal Detection
+# HPHF-MMDet: Heterogeneous Perception and Hyperspherical Fusion for Multimodal Object Detection
 
-## 🎯 核心创新
 
-- ✨ **Dual-branch Heterogeneous Backbone**: 打破传统的对称特征提取范式，设计了针对模态差异的双分支异构骨干网络。
-- 🌈 **Context-Guided Detail Enhancement Module (CGDEM)**: 针对 **RGB** 模态，动态调节细节特征，在抑制背景干扰的同时增强目标纹理。
-- 🌀 **Multi-Scale Windmill Convolution (MSWC)**: 针对 **IR** 模态，利用不对称感受野有效捕捉热目标的形态特征，解决弱纹理和类高斯分布问题。
-- 🔗 **Cross-Modal Complementary Hyperspherical Fusion (CM-CHF)**: 跨模态互补超球面融合机制，通过双向超球面对齐策略在全局尺度上聚合互补信息。
-- 🚀 **SOTA Performance**:
-    - **LLVIP**: 97.9% mAP50
-    - **M3FD**: 89.8% mAP50
-    - **MFAD**: 80.8% mAP50
 
 ## 📅 代码发布计划
 
