@@ -1,28 +1,28 @@
-# HPHF-MMDet: Heterogeneous Perception and Hyperspherical Fusion for Multimodal Object Detection
+# HPHF-MMDet:  Heterogeneous Perception and Hyperspherical Fusion for Multimodal Object Detection
 
 
 
-## 📅 代码发布计划
+## 📅 Code Release Plan
 
-> **重要说明**: 本项目的完整代码将在论文被期刊/会议正式录用后公开发布。
+> **Important Note**:  The complete code of this project will be publicly released after the paper is officially accepted by a journal/conference.
 
-**预计发布内容**:
-- [ ] 完整的 HPHF-Det 训练与推理代码
-- [ ] 预训练权重 (LLVIP, M3FD, MFAD)
-- [ ] 异构骨干网络 (Heterogeneous Backbone) 实现细节
-- [ ] 配置文件与复现脚本
+**Planned Release**:
+- [ ] Complete HPHF-Det training and inference code
+- [ ] Pre-trained weights (LLVIP, M3FD, MFAD)
+- [ ] Heterogeneous Backbone implementation details
+- [ ] Configuration files and reproduction scripts
 
-## 📧 联系方式
+## 📧 Contact
 
-如有学术交流或合作意向，请联系：
+For academic exchange or collaboration inquiries, please contact:
 - 📧 Email: [10431240210@stu.qlu.edu.cn](mailto:10431240210@stu.qlu.edu.cn)
 
-## 📄 许可证
+## 📄 License
 
-本项目遵循 [MIT License](LICENSE)
+This project is licensed under the [MIT License](LICENSE)
 
 ---
 
-⭐ **如果您对 HPHF-Det 感兴趣，请点击 Star 关注项目进展！**
+⭐ **If you are interested in HPHF-Det, please star this repository to follow the project updates!**
 
-**💡 提示**: 请持续关注本仓库，我们会在论文录用后第一时间发布完整代码。
+**💡 Tip**: Please stay tuned to this repository.  We will release the complete code as soon as the paper is accepted. 
