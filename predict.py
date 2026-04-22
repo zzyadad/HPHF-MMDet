@@ -1,9 +1,9 @@
-from ultralytics import YOLO
+from ultralytics import RTDETR
 import warnings
 warnings.filterwarnings('ignore')
 
 
-model = YOLO(r"runs/detect/train/weights/best.pt")
-model.predict(source=r"datasets/images/val", # 测试图像，指定可见光图像，会自动读取红外图像
+model =RTDETR(r"")
+model.predict(source=r"", # 测试图像，指定可见光图像，会自动读取红外图像
               save=True
               )
