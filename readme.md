@@ -93,7 +93,6 @@ This project does not provide a separate `requirements.txt` under `mm`.
 Dependencies are managed through `pyproject.toml`.
 
 ```bash
-cd HPHF-MMDet
 pip install ultralytics
 ```
 
