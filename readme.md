@@ -93,3 +93,87 @@ It provides a unified framework for model training, evaluation, and deployment, 
         │   └── LLVIP.yaml
         └── models
             └── HPHF-MMDet
+Important Paths
+Project root
+/home/s-zhangzy/RT-DETR/mm
+Dataset configuration directory
+/home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/datasets
+Model architecture directory
+/home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/models/HPHF-MMDet
+Common dataset configs
+/home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/datasets/MFAD.yaml
+/home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/datasets/M3FD.yaml
+/home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/datasets/LLVIP.yaml
+⚙️ Environment Setup
+1. Create Conda Environment
+conda create -n HPHF-MMDet python=3.10 -y
+conda activate HPHF-MMDet
+2. Install PyTorch
+
+Example for CUDA 11.8:
+
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+3. Install Project Dependencies
+
+This project does not provide a separate requirements.txt under mm.
+Dependencies are managed through pyproject.toml.
+
+cd /home/s-zhangzy/RT-DETR/mm
+pip install -e .
+🚀 Training
+
+train.py currently uses script-level parameters.
+Please set your actual model path and dataset path in train.py before running.
+
+Example:
+
+model = RTDETR("/absolute/path/to/model.yaml/or/weights.pt")
+model.train(data="/absolute/path/to/dataset.yaml", ...)
+Single-GPU Training
+cd /home/s-zhangzy/RT-DETR/mm
+python train.py
+Multi-GPU Training with torchrun
+2 GPUs
+cd /home/s-zhangzy/RT-DETR/mm
+CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 --master_port=29000 train.py
+4 GPUs
+cd /home/s-zhangzy/RT-DETR/mm
+CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 --master_port=29000 train.py
+Legacy Multi-GPU Command
+cd /home/s-zhangzy/RT-DETR/mm
+python -m torch.distributed.launch --nproc_per_node=4 --master_port=29000 train.py
+✅ Validation
+
+val.py also uses script-level parameters.
+Please set the correct model path and dataset path in val.py first.
+
+cd /home/s-zhangzy/RT-DETR/mm
+python val.py
+🔍 Inference
+
+predict.py uses script-level parameters.
+Please set the following items before running:
+
+model = RTDETR("/absolute/path/to/weights.pt")
+source = "/absolute/path/to/image/or/folder"
+cd /home/s-zhangzy/RT-DETR/mm
+python predict.py
+📊 Supported Datasets
+
+This project is currently organized to support the following common multimodal datasets:
+
+MFAD
+M3FD
+LLVIP
+
+You can switch datasets by modifying the corresponding dataset YAML configuration file.
+
+📎 Notes
+Please make sure all dataset paths are correctly configured before training or evaluation.
+For distributed training, ensure the selected GPUs are visible and available.
+It is recommended to use torchrun instead of the older distributed launch command.
+📧 Contact
+
+For questions, suggestions, or collaboration:
+
+10431240210@stu.qlu.edu.cn
