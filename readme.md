@@ -94,7 +94,7 @@ Dependencies are managed through `pyproject.toml`.
 
 ```bash
 cd HPHF-MMDet
-pip install -e .
+pip install ultralytics
 ```
 
 ---
