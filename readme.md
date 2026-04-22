@@ -44,7 +44,7 @@ approaches.
 ## 🖼️ Framework
 
 <div align="center">
-  <img src="assets/framework.png" alt="Framework of HPHF-MMDet" width="90%">
+  <img src="assets/framework.pdf" alt="Framework" width="90%">
   <p><em>Overall framework of HPHF-MMDet.</em></p>
 </div>
 
