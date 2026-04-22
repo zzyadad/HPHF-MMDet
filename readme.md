@@ -48,9 +48,6 @@ approaches.
   <p><em>Overall framework of HPHF-MMDet.</em></p>
 </div>
 
-> Please place your framework figure at `assets/framework.png`.  
-> If your actual filename is different, replace the image path above.
-
 ---
 
 ## 📂 Project Structure
