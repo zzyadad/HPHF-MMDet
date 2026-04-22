@@ -1,7 +1,6 @@
 <div align="center">
 
-# HPHF-MMDet
-### Multimodal Object Detection for Training, Validation, and Inference
+# HPHF-MMDet: Heterogeneous Perception and Hyperspherical Fusion for Multimodal Object Detection
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-blue.svg" />
@@ -28,37 +27,17 @@
 
 ---
 
-## 📌 Overview
-
-**HPHF-MMDet** is a multimodal object detection project built on an Ultralytics/RT-DETR-style framework.  
-This repository provides a clean and practical pipeline for:
-
-- training
-- validation
-- inference
-- single-GPU and multi-GPU execution
-- flexible dataset and model configuration
-
-The project is organized for efficient experimentation on common multimodal detection benchmarks such as **MFAD**, **M3FD**, and **LLVIP**.
-
----
-
-## ✨ Highlights
-
-- Clean and easy-to-follow project structure
-- Simple environment setup
-- Support for both **single-GPU** and **distributed multi-GPU** training
-- Flexible configuration for multimodal datasets and models
-- Straightforward validation and inference pipeline
-- Convenient for research reproduction and further development
-
----
-
 ## 📝 Abstract
 
-> Replace the following paragraph with your final paper abstract.
-
-This project focuses on multimodal object detection by jointly leveraging complementary information from different sensing modalities. It provides a unified framework for model training, evaluation, and deployment, and is designed to support flexible backbone configuration, reproducible experiments, and efficient multi-GPU execution.
+Multimodal object detection aims to leverage the complementary characteristics of visible (RGB) and infrared (IR) images to address perception challenges in complex environments.  However, existing methods typically utilize structurally uniform backbones that neglect the intrinsic disparities in imaging mechanisms between RGB and IR modalities. Moreover, existing fusion methods fail to effectively address the feature distribution discrepancies across heterogeneous modalities.  To address these issues, we propose Heterogeneous Perception and Hyperspherical Fusion for Multimodal Object Detection (HPHF-MMDet).
+We devise a Modality-Specific Heterogeneous Backbone (MSHB) that diverges from the conventional symmetric feature extraction paradigm.
+Specifically, for the RGB modality, we employ a Context-Guided Detail Enhancement Module (CGDEM) to dynamically modulate detailed features, suppressing background interference while highlighting target textures.
+For the IR modality, a Multi-Scale Windmill Convolution (MSWC) is carefully designed to exploit asymmetric receptive fields for capturing the morphological features of thermal targets. 
+Furthermore, to bridge the feature distribution discrepancies between heterogeneous modalities, we introduce a Cross-Modal Complementary Hyperspherical Fusion (CM-CHF) mechanism, which aggregates complementary information through bidirectional hyperspherical alignment.
+We conduct extensive experiments on the LLVIP, M3FD, and MFAD datasets.
+Our method achieves mAP50 of 97.9\%, 89.8\%, and 80.8\% 
+respectively, significantly outperforming existing state-of-the-art 
+approaches.
 
 ---
 
