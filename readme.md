@@ -70,36 +70,6 @@ approaches.
 
 ---
 
-## 📁 Important Paths
-
-### Project Root
-
-```bash
-/home/s-zhangzy/RT-DETR/mm
-```
-
-### Dataset Configuration Directory
-
-```bash
-/home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/datasets
-```
-
-### Model Architecture Directory
-
-```bash
-/home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/models/HPHF-MMDet
-```
-
-### Common Dataset Configurations
-
-```bash
-/home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/datasets/MFAD.yaml
-/home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/datasets/M3FD.yaml
-/home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/datasets/LLVIP.yaml
-```
-
----
-
 ## ⚙️ Environment Setup
 
 ### 1. Create a Conda Environment
@@ -123,7 +93,7 @@ This project does not provide a separate `requirements.txt` under `mm`.
 Dependencies are managed through `pyproject.toml`.
 
 ```bash
-cd /home/s-zhangzy/RT-DETR/mm
+cd HPHF-MMDet
 pip install -e .
 ```
 
@@ -144,30 +114,14 @@ model.train(data="/absolute/path/to/dataset.yaml", ...)
 ### Single-GPU Training
 
 ```bash
-cd /home/s-zhangzy/RT-DETR/mm
+cd HPHF-MMDet
 python train.py
 ```
 
 ### Multi-GPU Training with `torchrun`
 
-#### 2 GPUs
-
 ```bash
-cd /home/s-zhangzy/RT-DETR/mm
-CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 --master_port=29000 train.py
-```
-
-#### 4 GPUs
-
-```bash
-cd /home/s-zhangzy/RT-DETR/mm
-CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 --master_port=29000 train.py
-```
-
-### Legacy Multi-GPU Command
-
-```bash
-cd /home/s-zhangzy/RT-DETR/mm
+cd HPHF-MMDet
 python -m torch.distributed.launch --nproc_per_node=4 --master_port=29000 train.py
 ```
 
@@ -179,7 +133,7 @@ python -m torch.distributed.launch --nproc_per_node=4 --master_port=29000 train.
 > Please set the correct **model path** and **dataset path** in `val.py` first.
 
 ```bash
-cd /home/s-zhangzy/RT-DETR/mm
+cd HPHF-MMDet
 python val.py
 ```
 
@@ -194,7 +148,7 @@ python val.py
 * `source = "/absolute/path/to/image/or/folder")`
 
 ```bash
-cd /home/s-zhangzy/RT-DETR/mm
+cd HPHF-MMDet
 python predict.py
 ```
 
