@@ -1,109 +1,95 @@
-# HPHF-MMDet Multimodal Project Guide (Training / Validation / Inference)
+<div align="center">
 
-## 1. Directory and Configuration Locations
+# HPHF-MMDet
+### A Multimodal Object Detection Project for Training, Validation, and Inference
 
-Project root:
-- /home/s-zhangzy/RT-DETR/mm
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/python-3.10+-blue.svg" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/pytorch-supported-red.svg" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/platform-linux-lightgrey.svg" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/status-active-success.svg" /></a>
+</p>
 
-Dataset configuration directory:
-- /home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/datasets
+<p align="center">
+  <b>Guohua Lv</b><sup>*1,2</sup>,
+  <b>Zhengyang Zhang</b><sup>*1,2</sup>,
+  <b>Guangxiao Ma</b><sup>†3</sup>,
+  <b>Yongbiao Gao</b><sup>1,2</sup>,
+  <b>Jihao Jin</b><sup>1,2</sup>,
+  <b>Qian Xu</b><sup>4</sup>
+</p>
 
-Model architecture directory:
-- /home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/models/HPHF-MMDet
+<p align="center">
+  <sup>*</sup> These authors contributed equally to this work. <br>
+  <sup>†</sup> Corresponding author: Guangxiao Ma (mgx@sdust.edu.cn)
+</p>
 
-Common dataset configs:
-- /home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/datasets/MFAD.yaml
-- /home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/datasets/M3FD.yaml
-- /home/s-zhangzy/RT-DETR/mm/ultralytics/cfg/datasets/LLVIP.yaml
+</div>
 
-## 2. Environment Setup
+---
 
-### 2.1 Create a Conda Environment
+## 📌 Overview
 
-```bash
-conda create -n HPHF-MMDet python=3.10 -y
-conda activate HPHF-MMDet
-```
+**HPHF-MMDet** is a multimodal object detection project built on the Ultralytics/RT-DETR-style framework.  
+This repository provides a clean and practical pipeline for:
 
-### 2.2 Install PyTorch (Choose by CUDA Version)
+- **Training**
+- **Validation**
+- **Inference**
+- **Single-GPU and Multi-GPU execution**
+- **Flexible dataset and model configuration**
 
-Example for CUDA 11.8:
+The project is organized for convenient experimentation on common multimodal detection benchmarks such as **MFAD**, **M3FD**, and **LLVIP**.
 
-```bash
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
-```
+---
 
-### 2.3 Install Project Dependencies
+## 📝 Abstract
 
-This project does not provide a separate requirements.txt under mm.
-Dependencies are defined in pyproject.toml.
+> Replace this paragraph with your paper abstract.
 
-```bash
-cd /home/s-zhangzy/RT-DETR/mm
-pip install -e .
-```
+Example format:
 
-## 3. Training Commands (Single-GPU / Multi-GPU)
+This project focuses on multimodal object detection by jointly leveraging complementary information from different sensing modalities.  
+It provides a unified framework for model training, evaluation, and deployment, and is designed to support flexible backbone configuration, reproducible experiments, and efficient multi-GPU execution.
 
-Note: train.py currently uses script-level parameters. Set your actual model and data paths in train.py first.
+---
 
-Example setup in train.py:
-- model = RTDETR("/absolute/path/to/model.yaml/or/weights.pt")
-- model.train(data="/absolute/path/to/dataset.yaml", ...)
+## 🖼️ Framework
 
-### 3.1 Single-GPU Training
+<div align="center">
+  <img src="assets/framework.png" alt="Framework of HPHF-MMDet" width="90%">
+  <p><em>Overall framework of HPHF-MMDet.</em></p>
+</div>
 
-```bash
-cd /home/s-zhangzy/RT-DETR/mm
-python train.py
-```
+> Put your framework figure into `assets/framework.png`.  
+> If your image filename is different, replace the path above accordingly.
 
-### 3.2 Multi-GPU Training (Recommended: torchrun)
+---
 
-2 GPUs:
+## ✨ Features
 
-```bash
-cd /home/s-zhangzy/RT-DETR/mm
-CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 --master_port=29000 train.py
-```
+- Clean project structure
+- Easy environment setup
+- Support for **single-GPU** and **distributed multi-GPU** training
+- Compatible with multiple multimodal datasets
+- Simple validation and inference workflow
+- Convenient for research reproduction and further development
 
-4 GPUs:
+---
 
-```bash
-cd /home/s-zhangzy/RT-DETR/mm
-CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 --master_port=29000 train.py
-```
+## 📂 Project Structure
 
-### 3.3 Legacy Multi-GPU Command
-
-```bash
-cd /home/s-zhangzy/RT-DETR/mm
-python -m torch.distributed.launch --nproc_per_node=4 --master_port=29000 train.py
-```
-
-## 4. Validation Command
-
-Note: val.py also uses script-level parameters. Set model and data paths in val.py first.
-
-```bash
-cd /home/s-zhangzy/RT-DETR/mm
-python val.py
-```
-
-## 5. Inference Command
-
-Note: predict.py uses script-level parameters. Set the following first:
-- model = RTDETR("/absolute/path/to/weights.pt")
-- source = "/absolute/path/to/image/or/folder"
-
-```bash
-cd /home/s-zhangzy/RT-DETR/mm
-python predict.py
-```
-
-## 6. Contact
-
-For questions or collaboration:
-
-10431240210@stu.qlu.edu.cn
-
+```text
+/home/s-zhangzy/RT-DETR/mm
+├── train.py
+├── val.py
+├── predict.py
+├── pyproject.toml
+└── ultralytics
+    └── cfg
+        ├── datasets
+        │   ├── MFAD.yaml
+        │   ├── M3FD.yaml
+        │   └── LLVIP.yaml
+        └── models
+            └── HPHF-MMDet
